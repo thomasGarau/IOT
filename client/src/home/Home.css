@@ -1,0 +1,71 @@
+.file-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px; /* Increased to prevent overlap with navbar */
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.files-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 80%; /* Control the width of the grid of cards */
+    min-height: 80vh;
+    margin-top: 20px;
+    margin-bottom : 30px;
+    background-color: #fff; /* White background for the card container */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow around the container */
+}
+
+.file-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px; /* Fixed width for uniformity */
+    height : 150px; /* Fixed height for uniformity */
+}
+
+.file-card h3 {
+    color: #333;
+    font-size: 18px;
+}
+
+.file-card p {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.file-card button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.file-card button:hover {
+    background-color: darkred;
+}
+
+.loading-spinner {
+    border: 4px solid rgba(0,0,0,0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #09f;
+    animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
