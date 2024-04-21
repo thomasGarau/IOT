@@ -25,7 +25,6 @@ function Home() {
     fetchData();
 
     const handleDelete = (id) => {
-        console.log("bonjour ",id)
         deleteFileInfo(id)
             .then(() => {
                 console.log("File deleted");

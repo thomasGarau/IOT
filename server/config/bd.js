@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
+//changer uri pour ce connecter à une colection mongoDB
 const connectDB = async () => {
-    const uri = "mongodb+srv://thomasgarau8:yc69OYW1f4OBt17s@cluster0.tcen0pp.mongodb.net/iot";
+    const uri = "";
 
     try {
         await mongoose.connect(uri);

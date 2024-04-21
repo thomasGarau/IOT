@@ -1,7 +1,7 @@
 const FtpSrv = require('ftp-srv');
 const hostname = '192.168.35.92';
 const port = 21;
-
+//serveur ftp pour récupérer les enreigstrements audio de l'esp32
 const ftpServer = new FtpSrv({
     url: `ftp://${hostname}:${port}`,
     pasv_url: '192.168.35.92',  // Utilisez l'adresse IP externe si accédé de l'extérieur

@@ -1,9 +1,10 @@
 const FileInfo = require('../models/fileInfo-model');
 const connectDB = require('../config/bd');
 
+//récupérer les info de l'enregistrement envoyer par l'esp32 
+//plus utile depuis que le serveur récupére les fichier par ftp
 const processMqtt = async (message) => {
     try {
-        //const creationDate = message.toString().split(',')[0];
         const creationDate = new Date();
         const duration = message.toString().split(',')[1];
         const size = message.toString().split(',')[2];
@@ -19,6 +20,7 @@ const processMqtt = async (message) => {
     }
 };
 
+//fonction test uniquement
 const testdb = async () => {
     try {
         const file = new FileInfo({
@@ -52,6 +54,7 @@ const deleteFileInfo = async (id) => {
     }
 }
 
+//enregistre dans la db les info du fichier
 async function processFtpFile(filePath) {
     const ftpClient = new ftp.Client();
     ftpClient.ftp.verbose = true;

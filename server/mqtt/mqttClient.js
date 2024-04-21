@@ -2,6 +2,7 @@ const mqtt = require('mqtt');
 const client = mqtt.connect('mqtt://192.168.35.92');
 const { processMqtt } = require('../services/file-service.js');
 
+//stock la liste des utilisateur inscript a un topic
 let subscriptions = new Map();
 const topic = 'test/topic';
 
@@ -16,23 +17,13 @@ function subscribeToTopic(topic) {
     });
 }
 
-// setInterval(() => {
-//     const message = "INTERNAL: Hello, this is a regular update every 15 seconds.";
-//     client.publish(topic, message, {}, (error) => {
-//       if (error) {
-//         console.error('Failed to publish message:', error);
-//       } else {
-//         console.log(`Message sent to "${topic}": ${message}`);
-//       }
-//     });
-// }, 5000);
-
 
 client.on('message', (topic, message) => {
     if (subscriptions.has(topic)) {
         const messageContent = message.toString();
         console.log(`Message received on "${topic}": "${messageContent}"`);
         
+        //pour eviter de traiter les messages créer par notre serveur node
         if (!messageContent.startsWith("INTERNAL:")) {
             processMqtt(topic, messageContent);
         }

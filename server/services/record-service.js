@@ -1,5 +1,6 @@
 const mqttClient = require('../mqtt/mqttClient');
 
+//envois un message start à l'esp32 pour qu'il commence à enregistrer 
 const startRecord = async () => {
     mqttClient.client.publish('test/topic', 'INTERNAL: start', {}, (error) => {
       if (error) {
@@ -11,6 +12,7 @@ const startRecord = async () => {
     return true;
 }
 
+//envois un message de stop à l'esp32 pour mettre fin à l'enregistrement
 const stopRecord = async () => {
     mqttClient.client.publish('test/topic', 'INTERNAL: stop', {}, (error) => {
       if (error) {
